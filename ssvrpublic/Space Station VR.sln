@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{B88F53CE-D29B-A71B-8C4B-C0AA68EECF02}") = "Space Station VR", "Assembly-CSharp.csproj", "{08806F9F-2CEB-4B70-C290-CEB1317F256B}"
+EndProject
+Project("{B88F53CE-D29B-A71B-8C4B-C0AA68EECF02}") = "Space Station VR", "Assembly-CSharp-Editor.csproj", "{C44A18FD-ED1F-F0A4-037F-BDA78978C666}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08806F9F-2CEB-4B70-C290-CEB1317F256B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08806F9F-2CEB-4B70-C290-CEB1317F256B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08806F9F-2CEB-4B70-C290-CEB1317F256B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08806F9F-2CEB-4B70-C290-CEB1317F256B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C44A18FD-ED1F-F0A4-037F-BDA78978C666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44A18FD-ED1F-F0A4-037F-BDA78978C666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44A18FD-ED1F-F0A4-037F-BDA78978C666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44A18FD-ED1F-F0A4-037F-BDA78978C666}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

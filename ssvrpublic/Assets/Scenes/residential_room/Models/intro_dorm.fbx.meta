@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: abf4d27ebeff1f14097f114abbeb35ba
+timeCreated: 1477277875
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bedframe
+    100002: bedsheet1
+    100004: chair
+    100006: chair1
+    100008: //RootNode
+    100010: mattress
+    100012: monitor_base
+    100014: monitor_screen
+    100016: pillow
+    100018: shelf
+    100020: shelf_support
+    100022: shower_cold_knob
+    100024: shower_head
+    100026: shower_hot_knob
+    100028: shower_shithole
+    100030: showerknob_base
+    100032: toilet_paper_rack
+    100034: toilet_paper_roll
+    100036: bedsheet2
+    100038: bedsheet
+    100040: pPlane2
+    400000: bedframe
+    400002: bedsheet1
+    400004: chair
+    400006: chair1
+    400008: //RootNode
+    400010: mattress
+    400012: monitor_base
+    400014: monitor_screen
+    400016: pillow
+    400018: shelf
+    400020: shelf_support
+    400022: shower_cold_knob
+    400024: shower_head
+    400026: shower_hot_knob
+    400028: shower_shithole
+    400030: showerknob_base
+    400032: toilet_paper_rack
+    400034: toilet_paper_roll
+    400036: bedsheet2
+    400038: bedsheet
+    400040: pPlane2
+    2300000: bedframe
+    2300002: bedsheet1
+    2300004: chair
+    2300006: chair1
+    2300008: //RootNode
+    2300010: mattress
+    2300012: monitor_base
+    2300014: monitor_screen
+    2300016: pillow
+    2300018: shelf
+    2300020: shelf_support
+    2300022: shower_cold_knob
+    2300024: shower_head
+    2300026: shower_hot_knob
+    2300028: shower_shithole
+    2300030: showerknob_base
+    2300032: toilet_paper_rack
+    2300034: toilet_paper_roll
+    2300036: bedsheet2
+    2300038: bedsheet
+    2300040: pPlane2
+    3300000: bedframe
+    3300002: bedsheet1
+    3300004: chair
+    3300006: chair1
+    3300008: //RootNode
+    3300010: mattress
+    3300012: monitor_base
+    3300014: monitor_screen
+    3300016: pillow
+    3300018: shelf
+    3300020: shelf_support
+    3300022: shower_cold_knob
+    3300024: shower_head
+    3300026: shower_hot_knob
+    3300028: shower_shithole
+    3300030: showerknob_base
+    3300032: toilet_paper_rack
+    3300034: toilet_paper_roll
+    3300036: bedsheet2
+    3300038: bedsheet
+    3300040: pPlane2
+    4300000: dormitory_base
+    4300002: shelf
+    4300004: shelf_support
+    4300006: showerknob_base
+    4300008: shower_hot_knob
+    4300010: shower_cold_knob
+    4300012: toilet_paper_rack
+    4300014: toilet_paper_roll
+    4300016: shower_head
+    4300018: shower_shithole
+    4300020: chair1
+    4300022: chair
+    4300024: monitor_base
+    4300026: monitor_screen
+    4300028: bedframe
+    4300030: mattress
+    4300032: bedsheet1
+    4300034: pillow
+    4300036: bedsheet2
+    4300038: bedsheet
+    4300040: pPlane2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
