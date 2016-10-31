@@ -29,6 +29,7 @@ public class ClawControl : MonoBehaviour {
 	public GameObject nozzle;
 	public GameObject horizontalBeam;
 	public GameObject verticalBeam;
+	public LimbLightController limbLock;
 
 	private LineRenderer rope;
 	private float beamRotationY, beamRotationX, targetRotationX, targetRotationY,
@@ -171,8 +172,14 @@ public class ClawControl : MonoBehaviour {
 					}
 				} else if (targetDrop == 0) {
 					if (grabbedLimb != null) {
-						deliveryState = limbDeliveryState.ROTATING_UP;
-						rotationStateX = 3f;
+						if (limbLock.AcceptLimb (grabbedLimb.gameObject)) {
+							deliveryState = limbDeliveryState.ROTATING_UP;
+							rotationStateX = 3f;
+						} else {
+							grabbedLimb.GetComponentInParent<Rigidbody> ().isKinematic = false;
+							grabbedLimb = null;
+							deliveryState = limbDeliveryState.SEARCHING;
+						}
 					} else {
 						deliveryState = limbDeliveryState.SEARCHING;
 					}

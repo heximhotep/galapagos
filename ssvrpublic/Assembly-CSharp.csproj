@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DoorConditionalController.cs" />
+     <Compile Include="Assets\LimbLightController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawControl.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\DropButtonController.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\WardrobeController.cs" />
@@ -88,6 +90,7 @@
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\GvrReticle.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazePointer.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
+     <Compile Include="Assets\Universal Assets\Scripts\DoorCondition.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\DoorController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\PlayerController.cs" />
