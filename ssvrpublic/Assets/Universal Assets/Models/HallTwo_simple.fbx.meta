@@ -14,7 +14,9 @@ ModelImporter:
     400004: //RootNode
     400006: Sun
     2300000: Env
+    2300002: //RootNode
     3300000: Env
+    3300002: //RootNode
     4300000: Env
   materials:
     importMaterials: 1
