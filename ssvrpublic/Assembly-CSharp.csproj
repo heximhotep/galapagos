@@ -47,9 +47,13 @@
   <ItemGroup>
      <Compile Include="Assets\DoorConditionalController.cs" />
      <Compile Include="Assets\LimbLightController.cs" />
+     <Compile Include="Assets\RugmouthInitialTriggerController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawControl.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\DropButtonController.cs" />
+     <Compile Include="Assets\Scenes\kiss_room\Scripts\DressupController.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\WardrobeController.cs" />
+     <Compile Include="Assets\Scenes\residential_room\Scripts\AggregateOffsetter.cs" />
+     <Compile Include="Assets\Scenes\residential_room\Scripts\AnimationDelayerRandomOffset.cs" />
      <Compile Include="Assets\Scenes\residential_room\Scripts\run_delayer.cs" />
      <Compile Include="Assets\Testing\Controller.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\GvrHead.cs" />
@@ -96,6 +100,7 @@
      <Compile Include="Assets\Universal Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\RCActivatorController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\RCPlayerController.cs" />
+     <Compile Include="Assets\WardrobeOpenTriggerController.cs" />
      <None Include="Assets\Universal Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />

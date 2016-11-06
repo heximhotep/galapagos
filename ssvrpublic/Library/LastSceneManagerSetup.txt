@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/solar_room.unity
+- path: Assets/Scenes/kiss_room.unity
   isLoaded: 1
   isActive: 1

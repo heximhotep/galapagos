@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 826479e3165744443a4b6ca3f6a6d401
+timeCreated: 1478031671
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: cafeteria_communal_seating
+    100004: cafeteria_light_1
+    100006: cafeteria_light_2
+    100008: food_dispensers
+    100010: tableleg1
+    100012: tableleg2
+    100014: tableleg3
+    100016: tableleg4
+    100018: tabletop
+    400000: //RootNode
+    400002: cafeteria_communal_seating
+    400004: cafeteria_light_1
+    400006: cafeteria_light_2
+    400008: food_dispensers
+    400010: tableleg1
+    400012: tableleg2
+    400014: tableleg3
+    400016: tableleg4
+    400018: tabletop
+    2300000: //RootNode
+    2300002: cafeteria_communal_seating
+    2300004: cafeteria_light_1
+    2300006: cafeteria_light_2
+    2300008: food_dispensers
+    2300010: tableleg1
+    2300012: tableleg2
+    2300014: tableleg3
+    2300016: tableleg4
+    2300018: tabletop
+    3300000: //RootNode
+    3300002: cafeteria_communal_seating
+    3300004: cafeteria_light_1
+    3300006: cafeteria_light_2
+    3300008: food_dispensers
+    3300010: tableleg1
+    3300012: tableleg2
+    3300014: tableleg3
+    3300016: tableleg4
+    3300018: tabletop
+    4300000: cafeteria_base
+    4300002: cafeteria_communal_seating
+    4300004: food_dispensers
+    4300006: tabletop
+    4300008: tableleg4
+    4300010: tableleg3
+    4300012: tableleg2
+    4300014: tableleg1
+    4300016: cafeteria_light_1
+    4300018: cafeteria_light_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
