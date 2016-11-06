@@ -16,19 +16,19 @@ public class WardrobeController : MonoBehaviour {
 	void Update () {
 		if (active) {
 			if (Input.GetButton ("Fire1")) {
-				animator.SetBool ("Open", true);
+				animator.SetBool ("Active", true);
 			}
 		} else {
-			animator.SetBool ("Open", false);
+			animator.SetBool ("Active", false);
 		}
 	}
 
-	public void OnLook()
+	public void Activate()
 	{
 		active = true;
 	}
 
-	public void OffLook()
+	public void Deactivate()
 	{
 		active = false;
 	}

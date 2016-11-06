@@ -1,46 +1,48 @@
 fileFormatVersion: 2
 guid: 4186707c2c3ab5c419408a87dab308fa
-timeCreated: 1477146989
+timeCreated: 1478356386
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: dress1
-    100004: hangar1
-    100006: hangar2
-    100008: hangar_bar
-    100010: tux1
-    100012: wardrobe_door_left
-    100014: wardrobe_door_right
-    100016: wardrobe_knob_left
-    100018: wardrobe_knob_right
-    400000: //RootNode
-    400002: dress1
-    400004: hangar1
-    400006: hangar2
-    400008: hangar_bar
-    400010: tux1
-    400012: wardrobe_door_left
-    400014: wardrobe_door_right
-    400016: wardrobe_knob_left
-    400018: wardrobe_knob_right
-    2300000: //RootNode
-    2300002: dress1
-    2300004: hangar1
-    2300006: hangar2
-    2300008: hangar_bar
-    2300010: tux1
+    100000: dress
+    100002: hangar1
+    100004: hangar2
+    100006: hangar_bar
+    100008: tux
+    100010: //RootNode
+    100012: wardrobe_body
+    100014: wardrobe_door_left
+    100016: wardrobe_door_right
+    100018: wardrobe_knob_left
+    100020: wardrobe_knob_right
+    400000: dress
+    400002: hangar1
+    400004: hangar2
+    400006: hangar_bar
+    400008: tux
+    400010: //RootNode
+    400012: wardrobe_body
+    400014: wardrobe_door_left
+    400016: wardrobe_door_right
+    400018: wardrobe_knob_left
+    400020: wardrobe_knob_right
+    2300000: dress
+    2300002: hangar1
+    2300004: hangar2
+    2300006: hangar_bar
+    2300008: tux
+    2300010: wardrobe_body
     2300012: wardrobe_door_left
     2300014: wardrobe_door_right
     2300016: wardrobe_knob_left
     2300018: wardrobe_knob_right
-    3300000: //RootNode
-    3300002: dress1
-    3300004: hangar1
-    3300006: hangar2
-    3300008: hangar_bar
-    3300010: tux1
+    3300000: dress
+    3300002: hangar1
+    3300004: hangar2
+    3300006: hangar_bar
+    3300008: tux
+    3300010: wardrobe_body
     3300012: wardrobe_door_left
     3300014: wardrobe_door_right
     3300016: wardrobe_knob_left
@@ -48,13 +50,13 @@ ModelImporter:
     4300000: wardrobe_body
     4300002: hangar_bar
     4300004: hangar1
-    4300006: tux1
-    4300008: hangar2
-    4300010: dress1
-    4300012: wardrobe_door_left
-    4300014: wardrobe_knob_left
-    4300016: wardrobe_door_right
-    4300018: wardrobe_knob_right
+    4300006: hangar2
+    4300008: dress
+    4300010: wardrobe_door_left
+    4300012: wardrobe_knob_left
+    4300014: wardrobe_door_right
+    4300016: wardrobe_knob_right
+    4300018: tux
     7400000: Open
     7400002: Close
     9500000: //RootNode
@@ -106,23 +108,25 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: hangar_bar
+      - path: tux
         weight: 1
-      - path: hangar_bar/hangar1
+      - path: wardrobe_body
         weight: 1
-      - path: hangar_bar/hangar1/tux1
+      - path: wardrobe_body/hangar_bar
         weight: 1
-      - path: hangar_bar/hangar2
+      - path: wardrobe_body/hangar_bar/hangar1
         weight: 1
-      - path: hangar_bar/hangar2/dress1
+      - path: wardrobe_body/hangar_bar/hangar2
         weight: 1
-      - path: wardrobe_door_left
+      - path: wardrobe_body/hangar_bar/hangar2/dress
         weight: 1
-      - path: wardrobe_door_left/wardrobe_knob_left
+      - path: wardrobe_body/wardrobe_door_left
         weight: 1
-      - path: wardrobe_door_right
+      - path: wardrobe_body/wardrobe_door_left/wardrobe_knob_left
         weight: 1
-      - path: wardrobe_door_right/wardrobe_knob_right
+      - path: wardrobe_body/wardrobe_door_right
+        weight: 1
+      - path: wardrobe_body/wardrobe_door_right/wardrobe_knob_right
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -154,23 +158,25 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: hangar_bar
+      - path: tux
         weight: 1
-      - path: hangar_bar/hangar1
+      - path: wardrobe_body
         weight: 1
-      - path: hangar_bar/hangar1/tux1
+      - path: wardrobe_body/hangar_bar
         weight: 1
-      - path: hangar_bar/hangar2
+      - path: wardrobe_body/hangar_bar/hangar1
         weight: 1
-      - path: hangar_bar/hangar2/dress1
+      - path: wardrobe_body/hangar_bar/hangar2
         weight: 1
-      - path: wardrobe_door_left
+      - path: wardrobe_body/hangar_bar/hangar2/dress
         weight: 1
-      - path: wardrobe_door_left/wardrobe_knob_left
+      - path: wardrobe_body/wardrobe_door_left
         weight: 1
-      - path: wardrobe_door_right
+      - path: wardrobe_body/wardrobe_door_left/wardrobe_knob_left
         weight: 1
-      - path: wardrobe_door_right/wardrobe_knob_right
+      - path: wardrobe_body/wardrobe_door_right
+        weight: 1
+      - path: wardrobe_body/wardrobe_door_right/wardrobe_knob_right
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
