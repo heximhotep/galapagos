@@ -45,8 +45,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ApproachTriggerController.cs" />
+     <Compile Include="Assets\ClawRoomTransitionController.cs" />
+     <Compile Include="Assets\CloseLight.cs" />
+     <Compile Include="Assets\DoneRising.cs" />
      <Compile Include="Assets\DoorConditionalController.cs" />
+     <Compile Include="Assets\KissRoomTransitionController.cs" />
+     <Compile Include="Assets\KissTriggerController.cs" />
+     <Compile Include="Assets\KissingController.cs" />
      <Compile Include="Assets\LimbLightController.cs" />
+     <Compile Include="Assets\ResRoomTransitionController.cs" />
      <Compile Include="Assets\RugmouthInitialTriggerController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawControl.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\DropButtonController.cs" />
@@ -55,6 +63,8 @@
      <Compile Include="Assets\Scenes\residential_room\Scripts\AggregateOffsetter.cs" />
      <Compile Include="Assets\Scenes\residential_room\Scripts\AnimationDelayerRandomOffset.cs" />
      <Compile Include="Assets\Scenes\residential_room\Scripts\run_delayer.cs" />
+     <Compile Include="Assets\SolarRoomTransitionController.cs" />
+     <Compile Include="Assets\SoundTriggerController.cs" />
      <Compile Include="Assets\Testing\Controller.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\GvrHead.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\GvrCameraUtils.cs" />

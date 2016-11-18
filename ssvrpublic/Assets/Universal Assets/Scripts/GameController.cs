@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public void LoadSolarRoom()
+	{
+		SceneManager.LoadScene ("solar_room");
+	}
+
 	public void LoadClawRoom()
 	{
 		SceneManager.LoadScene ("claw_room");
@@ -22,5 +27,10 @@ public class GameController : MonoBehaviour {
 	public void LoadKissRoom()
 	{
 		SceneManager.LoadScene ("kiss_room");
+	}
+
+	public void LoadEndRoom()
+	{
+		SceneManager.LoadScene ("ending_placeholder");
 	}
 }

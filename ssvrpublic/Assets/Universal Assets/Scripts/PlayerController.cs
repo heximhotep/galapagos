@@ -10,13 +10,16 @@ public class PlayerController : MonoBehaviour {
 	private bool canMove;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		canMove = true;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (canMove && Input.GetButton("Fire1")){
+	void Update () 
+	{
+		if (canMove && Input.GetButton("Fire1"))
+		{
 			Vector3 forward = maincam.transform.forward;
 			transform.position = transform.position + new Vector3(forward.x, 0f, forward.z) * moveSpeed * Time.deltaTime;
 		}
