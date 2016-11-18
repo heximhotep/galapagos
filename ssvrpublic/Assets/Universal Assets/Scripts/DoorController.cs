@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using AssemblyCSharp;
 
 public class DoorController : MonoBehaviour {
 
 	private Animator doorAnimator;
+
 
 	void Awake()
 	{

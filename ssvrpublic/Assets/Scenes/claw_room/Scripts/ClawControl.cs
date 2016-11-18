@@ -130,10 +130,10 @@ public class ClawControl : MonoBehaviour {
 				targetExtension = Mathf.Clamp (targetExtension + 0.01f, -0.5f, 0.5f);
 				break;
 			case(controllerState.ON_LEFT):
-				rotationStateY -= 0.02f;
+				rotationStateY -= 0.02f * (Mathf.Sign(targetExtension));
 				break;
 			case(controllerState.ON_RIGHT):
-				rotationStateY += 0.02f;
+				rotationStateY += 0.02f * (Mathf.Sign (targetExtension));
 				break;
 			case(controllerState.ON_BOTTOM):
 				targetExtension = Mathf.Clamp (targetExtension - 0.01f, -0.5f, 0.5f);
@@ -141,19 +141,25 @@ public class ClawControl : MonoBehaviour {
 			}
 
 			if (dropState == dropBtnState.LIVE) {
-				if (targetDrop == 0) {
+				if (targetDrop == 0) 
+				{
 					RaycastHit rayInfo = new RaycastHit ();
 					Physics.Raycast (new Ray (claw.transform.position + new Vector3 (0, -2, 0), Vector3.down), out rayInfo);
-					if (rayInfo.transform != null) {
+					if (rayInfo.transform != null) 
+					{
 						Debug.Log ("raycast found object " + rayInfo.transform.gameObject.name);
-						if (rayInfo.collider.gameObject.layer == LayerMask.NameToLayer ("BodyPart")) {
+						if (rayInfo.collider.gameObject.layer == LayerMask.NameToLayer ("BodyPart")) 
+						{
 							grabbedLimb = rayInfo.transform;
 						}
 					} else
 						Debug.Log ("raycast missed all objects");
 					targetDrop = 1;
-				} else {
-					if (grabbedLimb != null) {
+				}
+				else 
+				{
+					if (grabbedLimb != null) 
+					{
 						targetExtension = 0;
 						liftingLimb = true;
 					}

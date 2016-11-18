@@ -13,6 +13,7 @@ public class DressupController : MonoBehaviour {
 	private bool initialTrigger, dropTrigger;
 	private dressGaze curGaze, curVisible;
 	private Animator rugmouthAnimator;
+	private KissingController kissControl;
 	private GameObject lover, loverDress, loverTux;
 
 	void Awake()
@@ -22,6 +23,7 @@ public class DressupController : MonoBehaviour {
 		curGaze = dressGaze.NONE;
 		curVisible = dressGaze.NONE;
 		rugmouthAnimator = GetComponent<Animator> ();
+		kissControl = transform.Find ("transport_platform_base").gameObject.GetComponent<KissingController> ();
 		lover = transform.Find ("transport_platform_base").Find ("Lover Standing").gameObject;
 		loverDress = lover.transform.Find ("lover_standing_dress").gameObject;
 		loverTux = lover.transform.Find ("lover_standing_tux").gameObject;
@@ -72,6 +74,7 @@ public class DressupController : MonoBehaviour {
 
 	public void GulpedDown()
 	{
+		kissControl.SetClothed ();
 		switch (curVisible) {
 		case(dressGaze.DRESS):
 			loverTux.SetActive (false);

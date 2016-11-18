@@ -1,17 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WardrobeOpenTriggerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CloseLight.cs">
     <Files>
+      <File FileName="Assets\ApproachTriggerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\KissTriggerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\KissingController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scenes\claw_room\Scripts\ClawControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\LimbLightController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DoorConditionalController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Universal Assets\Scripts\DoorCondition.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\residential_room\Scripts\run_delayer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\residential_room\Scripts\AnimationDelayerRandomOffset.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\residential_room\Scripts\AggregateOffsetter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\kiss_room\Scripts\WardrobeController.cs" Line="29" Column="3" />
+      <File FileName="Assets\Universal Assets\Scripts\DoorController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Universal Assets\Scripts\GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\ClawRoomTransitionController.cs" Line="1" Column="1" />
+      <File FileName="Assets\ResRoomTransitionController.cs" Line="1" Column="1" />
+      <File FileName="Assets\SolarRoomTransitionController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\kiss_room\Scripts\WardrobeController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scenes\kiss_room\Scripts\DressupController.cs" Line="1" Column="1" />
-      <File FileName="Assets\WardrobeOpenTriggerController.cs" Line="5" Column="2" />
+      <File FileName="Assets\KissRoomTransitionController.cs" Line="1" Column="1" />
+      <File FileName="Assets\SoundTriggerController.cs" Line="20" Column="2" />
+      <File FileName="Assets\CloseLight.cs" Line="33" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
