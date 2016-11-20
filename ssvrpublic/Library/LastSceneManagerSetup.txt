@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/residential_room.unity
+- path: Assets/Scenes/claw_room.unity
   isLoaded: 1
   isActive: 1
