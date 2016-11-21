@@ -29,9 +29,12 @@ public class DressupController : MonoBehaviour {
 		loverTux = lover.transform.Find ("lover_standing_tux").gameObject;
 	}
 
-	void Update () {
-		if (initialTrigger && Input.GetButtonUp("Fire1")) {
-			switch (curGaze) {
+	void Update () 
+	{
+		if (initialTrigger && Input.GetButtonUp("Fire1")) 
+		{
+			switch (curGaze) 
+			{
 			case(dressGaze.DRESS):
 				curVisible = dressGaze.DRESS;
 				Invoke ("CloseMouth", 1.5f);

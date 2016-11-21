@@ -55,25 +55,6 @@ public class RCPlayerController : MonoBehaviour {
 		}
 	}
 
-	//Public Methods
-	public void Activate(GameObject maincam)
-	{
-		rcUI.SetActive (true);
-		maincam.transform.position = playerOffset.transform.position;
-		maincam.transform.parent = playerOffset.transform;
-		playerCam = maincam;
-	}
-
-	public void Deactivate()
-	{		
-		if (playerCam != null) {
-			rcUI.SetActive (false);
-			playerCam.transform.position = playerCamParent.transform.position;
-			playerCam.transform.parent = playerCamParent.transform;
-			playerCam = null;
-		}
-	}
-
 	public void EnterLeft()
 	{
 		gazedBtn = OnButton.LEFT;
