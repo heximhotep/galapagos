@@ -29,6 +29,7 @@ public class ClawControl : MonoBehaviour {
 	public GameObject nozzle;
 	public GameObject horizontalBeam;
 	public GameObject verticalBeam;
+	public RCScreenController RCUIScreen;
 	public LimbLightController limbLock;
 
 	private LineRenderer rope;
@@ -40,7 +41,7 @@ public class ClawControl : MonoBehaviour {
 	private controllerState cState;
 	private dropBtnState dropState;
 	private limbDeliveryState deliveryState;
-	private bool liftingLimb;
+	private bool liftingLimb, dropInvoked, uiScreenSwitched;
 
 	private Transform grabbedLimb;
 	private Ray checkGrab;
@@ -54,7 +55,9 @@ public class ClawControl : MonoBehaviour {
 		cState = controllerState.OFF_ALL;
 		dropState = dropBtnState.OFFLINE;
 		deliveryState = limbDeliveryState.SEARCHING;
+		dropInvoked = false;
 		liftingLimb = false;
+		uiScreenSwitched = false;
 		clawXStart = claw.transform.localPosition.x;
 		clawZStart = claw.transform.localPosition.z;
 		rope = GetComponent<LineRenderer> ();
@@ -71,7 +74,6 @@ public class ClawControl : MonoBehaviour {
 		bottomHeight = clawHeight + armLength;
 		currentDrop = 0.0f;
 		targetDrop = 0.0f;
-
 	}
 
 	public void OnTop()
@@ -106,7 +108,14 @@ public class ClawControl : MonoBehaviour {
 
 	public void OnDrop()
 	{
+		if(!dropInvoked && deliveryState == limbDeliveryState.SEARCHING)
+			dropState = dropBtnState.LIVE;
+	}
+
+	public void InvokedOnDrop()
+	{
 		dropState = dropBtnState.LIVE;
+		dropInvoked = false;
 	}
 
 	public void FixedUpdate()
@@ -116,7 +125,8 @@ public class ClawControl : MonoBehaviour {
 		claw.transform.localPosition = new Vector3(clawXStart, restHeight + (bottomHeight - restHeight) * currentDrop, clawZStart);
 		rope.SetPosition (0, nozzle.transform.position);
 		rope.SetPosition (1, claw.transform.position);
-		if (grabbedLimb != null && liftingLimb) {
+		if (grabbedLimb != null && liftingLimb) 
+		{
 			grabbedLimb.transform.position = claw.transform.position + limbOffset;
 		}
 	}
@@ -125,24 +135,33 @@ public class ClawControl : MonoBehaviour {
 	{
 		switch (deliveryState) {
 		case(limbDeliveryState.SEARCHING):
-			switch (cState) {
-			case(controllerState.ON_TOP):
-				targetExtension = Mathf.Clamp (targetExtension + 0.01f, -0.5f, 0.5f);
-				break;
-			case(controllerState.ON_LEFT):
-				rotationStateY -= 0.02f * (Mathf.Sign(targetExtension));
-				break;
-			case(controllerState.ON_RIGHT):
-				rotationStateY += 0.02f * (Mathf.Sign (targetExtension));
-				break;
-			case(controllerState.ON_BOTTOM):
-				targetExtension = Mathf.Clamp (targetExtension - 0.01f, -0.5f, 0.5f);
-				break;
+			if (!dropInvoked) 
+			{
+				switch (cState) 
+				{
+				case(controllerState.ON_TOP):
+					targetExtension = Mathf.Clamp (targetExtension + 0.01f, -0.5f, 0.5f);
+					break;
+				case(controllerState.ON_LEFT):
+					rotationStateY -= 0.02f * (Mathf.Sign (targetExtension));
+					break;
+				case(controllerState.ON_RIGHT):
+					rotationStateY += 0.02f * (Mathf.Sign (targetExtension));
+					break;
+				case(controllerState.ON_BOTTOM):
+					targetExtension = Mathf.Clamp (targetExtension - 0.01f, -0.5f, 0.5f);
+					break;
+				}
 			}
-
-			if (dropState == dropBtnState.LIVE) {
+			if (dropState == dropBtnState.LIVE) 
+			{
 				if (targetDrop == 0) 
 				{
+					if (!uiScreenSwitched) 
+					{
+						uiScreenSwitched = true;
+						RCUIScreen.StartDrop ();
+					}
 					RaycastHit rayInfo = new RaycastHit ();
 					Physics.Raycast (new Ray (claw.transform.position + new Vector3 (0, -2, 0), Vector3.down), out rayInfo);
 					if (rayInfo.transform != null) 
@@ -155,6 +174,8 @@ public class ClawControl : MonoBehaviour {
 					} else
 						Debug.Log ("raycast missed all objects");
 					targetDrop = 1;
+					dropInvoked = true;
+					Invoke ("InvokedOnDrop", 3f);
 				}
 				else 
 				{
@@ -170,6 +191,7 @@ public class ClawControl : MonoBehaviour {
 			}
 			break;
 		case(limbDeliveryState.LIFTING):
+
 			if (Mathf.Abs (currentDrop - targetDrop) < float.Epsilon) {
 				if (targetDrop == 1) {
 					if (grabbedLimb != null) {
@@ -185,8 +207,14 @@ public class ClawControl : MonoBehaviour {
 							grabbedLimb.GetComponentInParent<Rigidbody> ().isKinematic = false;
 							grabbedLimb = null;
 							deliveryState = limbDeliveryState.SEARCHING;
+							liftingLimb = false;
 						}
 					} else {
+						if (uiScreenSwitched) 
+						{
+							uiScreenSwitched = false;
+							RCUIScreen.StopDrop ();
+						}
 						deliveryState = limbDeliveryState.SEARCHING;
 					}
 				}
@@ -216,6 +244,8 @@ public class ClawControl : MonoBehaviour {
 		case(limbDeliveryState.ROTATING_DOWN):
 			if (Mathf.Abs (beamRotationX - targetRotationX) < float.Epsilon) {
 				deliveryState = limbDeliveryState.SEARCHING;
+				RCUIScreen.StopDrop ();
+				uiScreenSwitched = false;
 			}
 			break;
 		}
