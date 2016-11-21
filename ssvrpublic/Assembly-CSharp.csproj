@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawRoomTransitionController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\DropButtonController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\LimbLightController.cs" />
+     <Compile Include="Assets\Scenes\claw_room\Scripts\RCPlayerController.cs" />
      <Compile Include="Assets\Scenes\ending_placeholder\Scripts\CloseLight.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\ApproachTriggerController.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\DressupController.cs" />
@@ -107,8 +108,6 @@
      <Compile Include="Assets\Universal Assets\Scripts\DoorController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Universal Assets\Scripts\RCActivatorController.cs" />
-     <Compile Include="Assets\Universal Assets\Scripts\RCPlayerController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\SoundTriggerController.cs" />
      <None Include="Assets\Universal Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
