@@ -45,11 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ControlCanvasController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawControl.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawRoomTransitionController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\DropButtonController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\LimbLightController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\RCPlayerController.cs" />
+     <Compile Include="Assets\Scenes\claw_room\Scripts\RCScreenController.cs" />
+     <Compile Include="Assets\Scenes\claw_room\Scripts\RCUIActivationController.cs" />
      <Compile Include="Assets\Scenes\ending_placeholder\Scripts\CloseLight.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\ApproachTriggerController.cs" />
      <Compile Include="Assets\Scenes\kiss_room\Scripts\DressupController.cs" />
