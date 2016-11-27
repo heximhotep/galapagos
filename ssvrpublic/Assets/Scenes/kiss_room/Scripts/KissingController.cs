@@ -7,6 +7,9 @@ public class KissingController : MonoBehaviour {
 	private GameObject player;
 
 	[SerializeField]
+	private LoverController loverControl;
+
+	[SerializeField]
 	private float kissTime;
 
 	[SerializeField]
@@ -75,6 +78,7 @@ public class KissingController : MonoBehaviour {
 			Invoke ("EndKiss", kissTime);
 			break;
 		case(KissState.FINAL):
+			loverControl.Rigidify ();
 			break;
 		}
 	}

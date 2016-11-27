@@ -24,14 +24,15 @@ public class CloseLight : MonoBehaviour {
     void OnTriggerEnter() {
         if (firedOff) return;
         firedOff = true;
-        roomLight.GetComponent<Light>().enabled = false;
+        //roomLight.GetComponent<Light>().enabled = false;
         fixImage.GetComponent<ui.Image>().color = new Color(0f, 0f, 0f, 1f);
 
         StartCoroutine(turnOff());
     }
 
     IEnumerator turnOff() {
-        for(int i = 0; i < lights.Length; i++) {
+        for(int i = 0; i < lights.Length; i++)
+		{
             lights[i].GetComponent<Light>().enabled = false;
             lights[i].GetComponent<AudioSource>().PlayOneShot(switchSound);
             print("play");
