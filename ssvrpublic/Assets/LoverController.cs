@@ -1,0 +1,26 @@
+﻿using UnityEngine;
+
+public class LoverController : MonoBehaviour {
+	[SerializeField]
+	private GameObject body, head;
+	private Rigidbody[] pieces;
+	void Awake()
+	{
+		pieces = new Rigidbody[body.transform.childCount + 1];
+		for (int i = 0; i < pieces.Length - 1; i++) {
+			pieces [i] = body.transform.GetChild (i).gameObject.GetComponent<Rigidbody> ();
+		}
+		pieces [pieces.Length - 1] = head.GetComponent<Rigidbody> ();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	}
+
+	public void Rigidify()
+	{
+		foreach (var item in pieces) {
+			item.isKinematic = false;
+		}
+	}
+}

@@ -1,15 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\claw_room\Scripts\RCUIActivationController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\ending_placeholder\Scripts\CloseLight.cs">
     <Files>
       <File FileName="Assets\Scenes\claw_room\Scripts\ClawControl.cs" Line="1" Column="1" />
       <File FileName="Assets\Universal Assets\Scripts\DoorController.cs" Line="1" Column="1" />
       <File FileName="Assets\Universal Assets\Scripts\GameController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scenes\kiss_room\Scripts\WardrobeController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scenes\kiss_room\Scripts\DressupController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\claw_room\Scripts\RCScreenController.cs" Line="45" Column="3" />
-      <File FileName="Assets\ControlCanvasController.cs" Line="25" Column="24" />
-      <File FileName="Assets\Scenes\claw_room\Scripts\RCUIActivationController.cs" Line="26" Column="3" />
+      <File FileName="Assets\Scenes\claw_room\Scripts\RCScreenController.cs" Line="1" Column="1" />
+      <File FileName="Assets\ControlCanvasController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\claw_room\Scripts\RCUIActivationController.cs" Line="1" Column="1" />
+      <File FileName="Assets\ScannerLightController.cs" Line="1" Column="1" />
+      <File FileName="Assets\LoverController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\kiss_room\Scripts\KissingController.cs" Line="1" Column="1" />
+      <File FileName="Assets\ScannerController.cs" Line="15" Column="38" />
+      <File FileName="Assets\Scenes\ending_placeholder\Scripts\CloseLight.cs" Line="40" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

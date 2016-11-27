@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/claw_room.unity
+- path: Assets/Scenes/ending_placeholder.unity
   isLoaded: 1
   isActive: 1
