@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
-public class KissingController : MonoBehaviour {
+public class KissingController : MonoBehaviour, DoorCondition {
 
 	[SerializeField]
 	private GameObject player;
+
+	[SerializeField]
+	private Animator loverAnimator;
+
+	[SerializeField]
+	private WardrobeController wardrobeControl;
 
 	[SerializeField]
 	private LoverController loverControl;
@@ -86,6 +93,12 @@ public class KissingController : MonoBehaviour {
 	public void SetClothed()
 	{
 		curState = KissState.CLOTHED;
+		wardrobeControl.Disable ();
+	}
+
+	public KissState GetState()
+	{
+		return curState;
 	}
 
 	public void TriggerApproach()
@@ -114,6 +127,11 @@ public class KissingController : MonoBehaviour {
 		return kissComplete;
 	}
 
+	public bool CanOpen()
+	{
+		return curState == KissState.FINAL;
+	}
+
 	void EnableKiss()
 	{
 		kissEnabled = true;
@@ -122,6 +140,7 @@ public class KissingController : MonoBehaviour {
 	void StepToKiss()
 	{
 		targetPosition = Vector3.Lerp (transform.position, player.transform.position, kissDistance);
+		loverAnimator.SetBool ("IsKissing", true);
 	}
 
 	void EndKiss()

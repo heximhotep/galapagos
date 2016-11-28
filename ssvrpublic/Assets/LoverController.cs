@@ -2,7 +2,7 @@
 
 public class LoverController : MonoBehaviour {
 	[SerializeField]
-	private GameObject body, head;
+	private GameObject body, animatedHead, rigidHead;
 	private Rigidbody[] pieces;
 	void Awake()
 	{
@@ -10,7 +10,7 @@ public class LoverController : MonoBehaviour {
 		for (int i = 0; i < pieces.Length - 1; i++) {
 			pieces [i] = body.transform.GetChild (i).gameObject.GetComponent<Rigidbody> ();
 		}
-		pieces [pieces.Length - 1] = head.GetComponent<Rigidbody> ();
+		pieces [pieces.Length - 1] = rigidHead.GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,8 @@ public class LoverController : MonoBehaviour {
 
 	public void Rigidify()
 	{
+		rigidHead.SetActive (true);
+		animatedHead.SetActive (false);
 		foreach (var item in pieces) {
 			item.isKinematic = false;
 		}
