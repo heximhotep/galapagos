@@ -208,6 +208,11 @@ public class ClawControl : MonoBehaviour {
 							grabbedLimb = null;
 							deliveryState = limbDeliveryState.SEARCHING;
 							liftingLimb = false;
+							if (uiScreenSwitched) 
+							{
+								uiScreenSwitched = false;
+								RCUIScreen.StopDrop ();
+							}
 						}
 					} else {
 						if (uiScreenSwitched) 
