@@ -5,7 +5,8 @@ using AssemblyCSharp;
 
 public class DoorConditionalController : MonoBehaviour {
 
-	public GameObject Lock;
+	[SerializeField]
+	private GameObject Lock;
 
 	private DoorCondition LockPiece;
 	private Animator doorAnimator;
@@ -17,7 +18,7 @@ public class DoorConditionalController : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag ("Player"))
+		if (LockPiece.CanOpen() && other.gameObject.CompareTag ("Player"))
 			doorAnimator.SetBool ("Open", true);
 	}
 	void OnTriggerExit(Collider other)

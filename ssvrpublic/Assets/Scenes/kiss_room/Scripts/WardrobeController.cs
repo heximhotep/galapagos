@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
 public class WardrobeController : MonoBehaviour {
 
 	private Animator animator;
 
-	private bool active;
+	private bool active, disabled;
 
 	void Awake()
 	{
+		disabled = false;
 		active = false;
 		animator = GetComponent<Animator> ();
 	}
@@ -25,11 +27,18 @@ public class WardrobeController : MonoBehaviour {
 
 	public void Activate()
 	{
-		active = true;
+		if(!disabled)
+			active = true;
 	}
 
 	public void Deactivate()
 	{
+		active = false;
+	}
+
+	public void Disable()
+	{
+		disabled = true;
 		active = false;
 	}
 }

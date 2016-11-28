@@ -6,9 +6,20 @@ public class ApproachTriggerController : MonoBehaviour {
 	[SerializeField]
 	private KissingController kCon;
 
+	private bool disable;
+
+	void Awake()
+	{
+		disable = false;
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag ("Player"))
+		if (!disable && other.gameObject.CompareTag ("Player") && kCon.GetState() == KissingController.KissState.CLOTHED) 
+		{
+			disable = true;
 			kCon.TriggerApproach ();
+		}
+		
 	}
 }
