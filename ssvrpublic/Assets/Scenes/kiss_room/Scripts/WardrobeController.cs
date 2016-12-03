@@ -41,4 +41,6 @@ public class WardrobeController : MonoBehaviour {
 		disabled = true;
 		active = false;
 	}
+
+
 }
