@@ -36,10 +36,12 @@ public class DressupController : MonoBehaviour {
 			switch (curGaze) 
 			{
 			case(dressGaze.DRESS):
+				kissControl.SetClothed ();
 				curVisible = dressGaze.DRESS;
 				Invoke ("CloseMouth", 1.5f);
 				break;
 			case(dressGaze.TUX):
+				kissControl.SetClothed ();
 				curVisible = dressGaze.TUX;
 				Invoke ("CloseMouth", 1.5f);
 				break;
@@ -51,6 +53,7 @@ public class DressupController : MonoBehaviour {
 		
 	void CloseMouth()
 	{
+		
 		rugmouthAnimator.SetBool ("Up", false);
 		Invoke ("GulpedDown", 3.0f);
 	}
@@ -77,7 +80,6 @@ public class DressupController : MonoBehaviour {
 
 	public void GulpedDown()
 	{
-		kissControl.SetClothed ();
 		switch (curVisible) {
 		case(dressGaze.DRESS):
 			loverTux.SetActive (false);

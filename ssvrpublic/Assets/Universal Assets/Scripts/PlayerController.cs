@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed;
 
-	private bool canMove;
+	private bool canMove, canMoveHard;
 
 	// Use this for initialization
 	void Start () 
 	{
 		canMove = true;
+		canMoveHard = true;
 	}
 	
 	// Update is called once per frame
@@ -40,8 +41,21 @@ public class PlayerController : MonoBehaviour {
 		canMove = false;
 	}
 
+	public void stopMovementHARD()
+	{
+		canMoveHard = false;
+		canMove = false;
+	}
+
+	public void startMovementHARD()
+	{
+		canMoveHard = true;
+		canMove = true;
+	}
+
 	public void startMovement()
 	{
-		canMove = true;
+		if(canMoveHard)
+			canMove = true;
 	}
 }

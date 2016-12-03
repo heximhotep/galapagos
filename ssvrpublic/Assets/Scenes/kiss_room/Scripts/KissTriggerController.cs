@@ -8,6 +8,6 @@ public class KissTriggerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Player"))
-			kCon.TriggerKiss ();
+			kCon.TriggerIntimate ();
 	}
 }

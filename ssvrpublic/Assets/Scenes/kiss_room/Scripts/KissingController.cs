@@ -20,15 +20,24 @@ public class KissingController : MonoBehaviour, DoorCondition {
 	private float kissTime;
 
 	[SerializeField]
+	private float kissAngle;
+
+	[SerializeField]
 	private float kissDistance;
 
-	private GameObject cam, lover;
+	[SerializeField]
+	private ClothFadeControl dressFade, tuxFade;
+
+	private GameObject cam, lover, loverHead;
 	private Vector3 startPosition, targetPosition;
 	private Vector3 startRotation, targetRotation;
 
 	private float initialMoveSpeed = 0;
+	private float curKissTime;
+	private bool IntimateEnabled = false;
 	private bool kissEnabled = false;
 	private bool kissComplete = false;
+	private bool fadeEnabled = false;
 
 	public enum KissState{
 		INITIAL,
@@ -45,10 +54,12 @@ public class KissingController : MonoBehaviour, DoorCondition {
 	{
 		cam = player.transform.Find ("Camera Offset").Find ("MainCamera").gameObject;
 		lover = transform.Find ("Lover Standing").gameObject;
+		loverHead = lover.transform.Find ("lover_standing_base").Find ("generic_head").Find ("lover_head_2").gameObject;
 		startPosition = lover.transform.position;
 		targetPosition = startPosition;
 		startRotation = lover.transform.rotation.eulerAngles;
 		targetRotation = startRotation;
+		curKissTime = kissTime;
 	}
 
 	void FixedUpdate()
@@ -82,12 +93,39 @@ public class KissingController : MonoBehaviour, DoorCondition {
 		case(KissState.APPROACH):
 			break;
 		case(KissState.INTIMATE):
-			Invoke ("EndKiss", kissTime);
+//			Invoke ("EndKiss", kissTime);
+			if (kissEnabled && Input.GetButton ("Fire1"))
+				StartKiss ();
+			break;
+		case(KissState.KISSING):
+			if (KissCheck ()) {
+				curKissTime -= Time.deltaTime;
+			} else {
+				curKissTime = kissTime;
+			}
+			if (curKissTime <= 0) {
+				EndKiss ();
+			}
 			break;
 		case(KissState.FINAL):
+			if (!fadeEnabled && tuxFade.gameObject.activeInHierarchy) {
+				tuxFade.StartFade ();
+				fadeEnabled = true;
+			}
+			if (!fadeEnabled && dressFade.gameObject.activeInHierarchy && !fadeEnabled) {
+				dressFade.StartFade ();
+				fadeEnabled = true;
+			}
 			loverControl.Rigidify ();
 			break;
 		}
+	}
+
+	bool KissCheck()
+	{
+		Vector3 _camEye = cam.transform.forward;
+		Vector3 _idealEye = (loverHead.transform.position - cam.transform.position).normalized;
+		return (Vector3.Angle (_camEye, _idealEye) <= kissAngle);
 	}
 
 	public void SetClothed()
@@ -108,18 +146,30 @@ public class KissingController : MonoBehaviour, DoorCondition {
 			initialMoveSpeed = player.GetComponent<PlayerController> ().moveSpeed;
 			player.GetComponent<PlayerController> ().moveSpeed = 0.5f;
 			curState = KissState.APPROACH;
-			EnableKiss ();
+			IntimateEnabled = true;
 		}
 	}
 
-	public void TriggerKiss()
+	public void TriggerIntimate()
 	{
-		if (kissEnabled && curState == KissState.APPROACH) 
+		if (IntimateEnabled && curState == KissState.APPROACH) 
 		{
-			player.GetComponent<PlayerController> ().stopMovement ();
+			player.GetComponent<PlayerController> ().stopMovementHARD ();
 			curState = KissState.INTIMATE;
 			StepToKiss ();
 		}
+	}
+
+	public void OnLoverFaceEnter()
+	{
+		if (curState == KissState.INTIMATE)
+			kissEnabled = true;
+	}
+
+	public void OnLoverFaceExit()
+	{
+		if (curState == KissState.INTIMATE)
+			kissEnabled = false;
 	}
 
 	public bool KissComplete()
@@ -132,21 +182,22 @@ public class KissingController : MonoBehaviour, DoorCondition {
 		return curState == KissState.FINAL;
 	}
 
-	void EnableKiss()
-	{
-		kissEnabled = true;
-	}
 
 	void StepToKiss()
 	{
 		targetPosition = Vector3.Lerp (transform.position, player.transform.position, kissDistance);
+	}
+
+	void StartKiss()
+	{
+		curState = KissState.KISSING;
 		loverAnimator.SetBool ("IsKissing", true);
 	}
 
 	void EndKiss()
 	{
 		kissComplete = true;
-		player.GetComponent<PlayerController> ().startMovement ();
+		player.GetComponent<PlayerController> ().startMovementHARD ();
 		player.GetComponent<PlayerController> ().moveSpeed = initialMoveSpeed;
 		curState = KissState.FINAL;
 	}
