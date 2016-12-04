@@ -20,11 +20,11 @@ public class RCUIActivationController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit(Collider other)
-	{
-		if (other.gameObject.CompareTag ("Player")) 
-		{
-			canvasControl.Deactivate ();
-		}
-	}
+//	void OnTriggerExit(Collider other)
+//	{
+//		if (other.gameObject.CompareTag ("Player")) 
+//		{
+//			canvasControl.Deactivate ();
+//		}
+//	}
 }

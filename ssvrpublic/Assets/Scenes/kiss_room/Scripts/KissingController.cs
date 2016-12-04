@@ -4,6 +4,11 @@ using AssemblyCSharp;
 
 public class KissingController : MonoBehaviour, DoorCondition {
 
+	private AudioSource speaker;
+
+	[SerializeField]
+	private AudioClip initialKissDialogue, kissInterruptDialogue, kissEndDialogue;
+
 	[SerializeField]
 	private GameObject player;
 
@@ -52,6 +57,7 @@ public class KissingController : MonoBehaviour, DoorCondition {
 
 	void Awake()
 	{
+		speaker = GetComponent<AudioSource> ();
 		cam = player.transform.Find ("Camera Offset").Find ("MainCamera").gameObject;
 		lover = transform.Find ("Lover Standing").gameObject;
 		loverHead = lover.transform.Find ("lover_standing_base").Find ("generic_head").Find ("lover_head_2").gameObject;
@@ -99,9 +105,11 @@ public class KissingController : MonoBehaviour, DoorCondition {
 			break;
 		case(KissState.KISSING):
 			if (KissCheck ()) {
+				player.GetComponent<PlayerController> ().KissInterruptEnd ();
 				curKissTime -= Time.deltaTime;
 			} else {
 				curKissTime = kissTime;
+				player.GetComponent<PlayerController> ().KissInterruptStart (0.2f);
 			}
 			if (curKissTime <= 0) {
 				EndKiss ();

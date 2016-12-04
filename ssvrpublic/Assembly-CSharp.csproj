@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ControlCanvasController.cs" />
+     <Compile Include="Assets\PlayerCanvasControl.cs" />
      <Compile Include="Assets\ScannerEyeController.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawControl.cs" />
      <Compile Include="Assets\Scenes\claw_room\Scripts\ClawRoomTransitionController.cs" />
