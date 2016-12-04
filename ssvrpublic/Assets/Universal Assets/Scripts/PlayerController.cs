@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour {
@@ -7,13 +7,29 @@ public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed;
 
-	private bool canMove, canMoveHard;
+	private PlayerCanvasControl canvasControl;
+
+	private Vector3 shakeOffset;
+	private float shakeAmt;
+
+	[SerializeField]
+	private Color flashCol;
+
+	[SerializeField]
+	private float flashInterval = 0.5f;
+
+	private bool canMove, canMoveHard, kissInterrupt;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		canMove = true;
 		canMoveHard = true;
+		kissInterrupt = false;
+		canvasControl = transform.Find ("Camera Offset").Find ("MainCamera").Find ("PlayerOverlayCanvas").Find("Panel").GetComponent<PlayerCanvasControl> ();
+		Color _flashColClear = new Color (flashCol.r, flashCol.g, flashCol.b, 0);
+		canvasControl.shiftColor (_flashColClear, 1f);
+		canvasControl.GetComponent<Image> ().color = _flashColClear;
 	}
 	
 	// Update is called once per frame
@@ -24,6 +40,23 @@ public class PlayerController : MonoBehaviour {
 			Vector3 forward = maincam.transform.forward;
 			transform.position = transform.position + new Vector3(forward.x, 0f, forward.z) * moveSpeed * Time.deltaTime;
 		}
+
+		if (Input.GetKeyUp (KeyCode.Space))
+			Application.CaptureScreenshot ("kissroompreview.png");
+	}
+
+	void FlashScreenOn()
+	{
+		canvasControl.shiftColor(flashCol, flashInterval);
+		Invoke ("FlashScreenOff", flashInterval);
+	}
+
+	void FlashScreenOff()
+	{
+		Color _fadedCol = new Color (flashCol.r, flashCol.g, flashCol.b, 0);
+		canvasControl.shiftColor (_fadedCol, flashInterval);
+		if (kissInterrupt)
+			Invoke ("FlashScreenOn", flashInterval);
 	}
 
 	public void Deactivate()
@@ -57,5 +90,19 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(canMoveHard)
 			canMove = true;
+	}
+
+	public void KissInterruptStart(float shakeAmt)
+	{
+		if (!kissInterrupt) 
+		{
+			kissInterrupt = true;
+			FlashScreenOn ();
+		}
+	}
+
+	public void KissInterruptEnd()
+	{
+		kissInterrupt = false;
 	}
 }
