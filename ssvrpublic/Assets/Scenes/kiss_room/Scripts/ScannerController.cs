@@ -24,7 +24,7 @@ public class ScannerController : MonoBehaviour {
 			_offset = _offset - new Vector3 (0, _offset.y, 0);
 			Vector3 _curFace = head.transform.up - new Vector3 (0, head.transform.up.y, 0);
 			float theta = Vector3.Angle (_curFace, _offset);
-			if (theta > 0.6f) 
+			if (theta > 1f) 
 			{
 				float thetaSign = Mathf.Sign ((_curFace - _offset).x);
 				theta = Mathf.Clamp (theta * thetaSign, -0.5f, 0.5f);
