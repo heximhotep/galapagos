@@ -114,6 +114,9 @@
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\GvrReticle.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazePointer.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
+     <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\BadButton.cs" />
+     <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\EthicsCaptcha.cs" />
+     <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\GoodButton.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\DoorCondition.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\DoorConditionalController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\DoorController.cs" />
