@@ -43,6 +43,7 @@ public class KissingController : MonoBehaviour, DoorCondition {
 	private bool kissEnabled = false;
 	private bool kissComplete = false;
 	private bool fadeEnabled = false;
+	private bool kissInterrupts = false;
 
 	private AudioSource audio;
 	public AudioClip kissing;
@@ -121,7 +122,13 @@ public class KissingController : MonoBehaviour, DoorCondition {
 				curKissTime -= Time.deltaTime;
 			} else {
 				curKissTime = kissTime;
-				player.GetComponent<PlayerController> ().KissInterruptStart (0.2f);
+				if (!GameController.instance.voice.IsPlaying () && !kissInterrupts) {
+					int clipIndex = 22 + (int)Random.Range (0, 2 - float.Epsilon);
+					GameController.instance.voice.RequestPlayClip (clipIndex);
+					kissInterrupts = true;
+					Invoke ("NewInterrupts", 2f);
+				}
+			player.GetComponent<PlayerController> ().KissInterruptStart (0.2f);
 			}
 			if (curKissTime <= 0) {
 				EndKiss ();
@@ -154,6 +161,11 @@ public class KissingController : MonoBehaviour, DoorCondition {
 		return (Vector3.Angle (_camEye, _idealEye) <= kissAngle);
 	}
 
+	void NewInterrupts()
+	{
+		kissInterrupts = false;
+	}
+
 	public void SetClothed()
 	{
 		audio.Stop();
@@ -175,6 +187,7 @@ public class KissingController : MonoBehaviour, DoorCondition {
 			initialMoveSpeed = player.GetComponent<PlayerController> ().moveSpeed;
 			player.GetComponent<PlayerController> ().moveSpeed = 0.5f;
 			curState = KissState.APPROACH;
+			GameController.instance.voice.RequestPlayClip (21);
 			IntimateEnabled = true;
 		}
 	}

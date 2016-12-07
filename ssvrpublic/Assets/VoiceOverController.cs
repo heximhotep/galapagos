@@ -66,6 +66,11 @@ public class VoiceOverController : MonoBehaviour {
 		}
 	}
 
+	public bool IsPlaying()
+	{
+		return clipPlaying;
+	}
+
 	public void ClearClipQueue()
 	{
 		clipQueue.Clear ();

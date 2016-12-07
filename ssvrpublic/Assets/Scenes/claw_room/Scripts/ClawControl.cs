@@ -42,6 +42,7 @@ public class ClawControl : MonoBehaviour {
 	private dropBtnState dropState;
 	private limbDeliveryState deliveryState;
 	private bool liftingLimb, dropInvoked, uiScreenSwitched;
+	private int limbCount;
 
 	private Transform grabbedLimb;
 	private Ray checkGrab;
@@ -68,6 +69,7 @@ public class ClawControl : MonoBehaviour {
 		clawXStart = claw.transform.localPosition.x;
 		clawZStart = claw.transform.localPosition.z;
 		rope = GetComponent<LineRenderer> ();
+		limbCount = 0;
 		beamRotationY = 0f;
 		beamRotationX = 180f;
 		targetRotationX = 0f;
@@ -155,19 +157,26 @@ public class ClawControl : MonoBehaviour {
 				{
 				case(controllerState.ON_TOP):
 					targetExtension = Mathf.Clamp (targetExtension + 0.01f, -0.5f, 0.5f);
-					audio.Play();
+					if(!audio.isPlaying)
+						audio.Play();
 					break;
 				case(controllerState.ON_LEFT):
 					rotationStateY -= 0.02f * (Mathf.Sign (targetExtension));
-					audio.Play();
+					if(!audio.isPlaying)
+						audio.Play();
 					break;
 				case(controllerState.ON_RIGHT):
 					rotationStateY += 0.02f * (Mathf.Sign (targetExtension));
-					audio.Play();
+					if(!audio.isPlaying)
+						audio.Play();
 					break;
 				case(controllerState.ON_BOTTOM):
 					targetExtension = Mathf.Clamp (targetExtension - 0.01f, -0.5f, 0.5f);
-					audio.Play();
+					if(!audio.isPlaying)
+						audio.Play();
+					break;
+				default:
+					audio.Stop ();
 					break;
 				}
 			}
@@ -175,6 +184,9 @@ public class ClawControl : MonoBehaviour {
 			{
 				if (targetDrop == 0) 
 				{
+					audio.Stop ();
+					audio.clip = drop;
+					audio.Play ();
 					if (!uiScreenSwitched) 
 					{
 						uiScreenSwitched = true;
@@ -209,13 +221,13 @@ public class ClawControl : MonoBehaviour {
 			}
 			break;
 		case(limbDeliveryState.LIFTING):
-			if (audio.clip != retract)
-				audio.Stop();
-			if (!audio.isPlaying) {
-				if (audio.clip != retract)
-					audio.clip = retract;
-				audio.Play();
+			if (!audio.clip == retract) {
+				audio.Stop ();
+				audio.clip = retract;
 			}
+			if(!audio.isPlaying)
+				audio.Play();
+
 			if (Mathf.Abs (currentDrop - targetDrop) < float.Epsilon) {
 				if (targetDrop == 1) {
 					if (grabbedLimb != null) {
@@ -225,6 +237,22 @@ public class ClawControl : MonoBehaviour {
 				} else if (targetDrop == 0) {
 					if (grabbedLimb != null) {
 						if (limbLock.AcceptLimb (grabbedLimb.gameObject)) {
+							limbCount++;
+							if (limbCount == 1) {
+								GameController.instance.voice.RequestPlayClip (11);
+							}
+							if (limbCount == 2) {
+								GameController.instance.voice.RequestPlayClip (15);
+							}
+							if (limbCount == 3) {
+								GameController.instance.voice.RequestPlayClip (16);
+							}
+							if (limbCount == 4) {
+								GameController.instance.voice.RequestPlayClip (17);
+							}
+							if (limbCount == 5) {
+								GameController.instance.voice.RequestPlayClip (18);
+							}
 							deliveryState = limbDeliveryState.ROTATING_UP;
 							rotationStateX = 3f;
 						} else {
@@ -265,17 +293,9 @@ public class ClawControl : MonoBehaviour {
 			}
 			break;
 		case(limbDeliveryState.RETRACTING):
-			if (audio.clip != retract)
-				audio.Stop();
-			if (!audio.isPlaying) {
-				if (audio.clip != retract)
-					audio.clip = retract;
-				audio.Play();
-				
 			if (Mathf.Abs (currentDrop - targetDrop) < float.Epsilon) {
 				deliveryState = limbDeliveryState.ROTATING_DOWN;
 				rotationStateX = 0f;
-				}
 			}
 			break;
 		case(limbDeliveryState.ROTATING_DOWN):
