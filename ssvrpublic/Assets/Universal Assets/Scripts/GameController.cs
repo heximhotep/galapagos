@@ -5,6 +5,8 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 	public static GameController instance;
 
+	public VoiceOverController voice;
+
 	void Awake()
 	{
 		if (instance != null) {

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Universal Assets\GoogleVR\Editor\GvrAudioRoomEditor.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Editor\GvrAudioSoundfieldEditor.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Editor\GvrAudioSourceEditor.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\Editor\GvrCompatibilityChecker.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Editor\GvrGazeEditor.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Editor\GvrMenu.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Editor\GvrViewerEditor.cs" />
@@ -56,7 +57,9 @@
      <None Include="Assets\Universal Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest-Daydream.xml" />
      <None Include="Assets\Universal Assets\GoogleVR\Resources\UI\GvrReticleShader.shader" />
+     <None Include="Assets\Plugins\Android\AndroidManifest-Cardboard.xml" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
