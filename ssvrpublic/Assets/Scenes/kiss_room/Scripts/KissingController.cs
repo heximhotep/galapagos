@@ -44,6 +44,11 @@ public class KissingController : MonoBehaviour, DoorCondition {
 	private bool kissComplete = false;
 	private bool fadeEnabled = false;
 
+	private AudioSource audio;
+	public AudioClip kissing;
+	public AudioClip fade;
+	public AudioClip get_clothed;
+
 	public enum KissState{
 		INITIAL,
 		CLOTHED,
@@ -66,6 +71,8 @@ public class KissingController : MonoBehaviour, DoorCondition {
 		startRotation = lover.transform.rotation.eulerAngles;
 		targetRotation = startRotation;
 		curKissTime = kissTime;
+
+		audio = GetComponent<AudioSource> ();
 	}
 
 	void FixedUpdate()
@@ -104,6 +111,11 @@ public class KissingController : MonoBehaviour, DoorCondition {
 				StartKiss ();
 			break;
 		case(KissState.KISSING):
+			if (!audio.isPlaying) {
+				if (audio.clip != kissing)
+					audio.clip = kissing;
+				audio.Play();
+			}
 			if (KissCheck ()) {
 				player.GetComponent<PlayerController> ().KissInterruptEnd ();
 				curKissTime -= Time.deltaTime;
@@ -119,10 +131,16 @@ public class KissingController : MonoBehaviour, DoorCondition {
 			if (!fadeEnabled && tuxFade.gameObject.activeInHierarchy) {
 				tuxFade.StartFade ();
 				fadeEnabled = true;
+				audio.Stop();
+				audio.clip = fade;
+				audio.Play();
 			}
 			if (!fadeEnabled && dressFade.gameObject.activeInHierarchy && !fadeEnabled) {
 				dressFade.StartFade ();
 				fadeEnabled = true;
+				audio.Stop();
+				audio.clip = fade;
+				audio.Play();
 			}
 			loverControl.Rigidify ();
 			break;
@@ -138,6 +156,9 @@ public class KissingController : MonoBehaviour, DoorCondition {
 
 	public void SetClothed()
 	{
+		audio.Stop();
+		audio.clip = get_clothed;
+		audio.Play();
 		curState = KissState.CLOTHED;
 		wardrobeControl.Disable ();
 	}
@@ -182,6 +203,7 @@ public class KissingController : MonoBehaviour, DoorCondition {
 
 	public bool KissComplete()
 	{
+		audio.Stop();
 		return kissComplete;
 	}
 

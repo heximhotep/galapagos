@@ -50,6 +50,13 @@ public class ClawControl : MonoBehaviour {
 
 	public float clawRange, armLength;
 
+	//sound things
+	private AudioSource audio;
+	public AudioClip drop;
+	public AudioClip grab;
+	public AudioClip retract;
+	public AudioClip rotate;
+
 	public void Awake()
 	{
 		cState = controllerState.OFF_ALL;
@@ -74,6 +81,7 @@ public class ClawControl : MonoBehaviour {
 		bottomHeight = clawHeight + armLength;
 		currentDrop = 0.0f;
 		targetDrop = 0.0f;
+		audio = GetComponent<AudioSource> ();
 	}
 
 	public void OnTop()
@@ -128,6 +136,11 @@ public class ClawControl : MonoBehaviour {
 		if (grabbedLimb != null && liftingLimb) 
 		{
 			grabbedLimb.transform.position = claw.transform.position + limbOffset;
+			if (!audio.isPlaying) {
+				if (audio.clip != retract)
+					audio.clip = retract;
+				audio.Play();
+			}
 		}
 	}
 
@@ -137,19 +150,24 @@ public class ClawControl : MonoBehaviour {
 		case(limbDeliveryState.SEARCHING):
 			if (!dropInvoked) 
 			{
+				audio.clip = rotate;
 				switch (cState) 
 				{
 				case(controllerState.ON_TOP):
 					targetExtension = Mathf.Clamp (targetExtension + 0.01f, -0.5f, 0.5f);
+					audio.Play();
 					break;
 				case(controllerState.ON_LEFT):
 					rotationStateY -= 0.02f * (Mathf.Sign (targetExtension));
+					audio.Play();
 					break;
 				case(controllerState.ON_RIGHT):
 					rotationStateY += 0.02f * (Mathf.Sign (targetExtension));
+					audio.Play();
 					break;
 				case(controllerState.ON_BOTTOM):
 					targetExtension = Mathf.Clamp (targetExtension - 0.01f, -0.5f, 0.5f);
+					audio.Play();
 					break;
 				}
 			}
@@ -191,7 +209,13 @@ public class ClawControl : MonoBehaviour {
 			}
 			break;
 		case(limbDeliveryState.LIFTING):
-
+			if (audio.clip != retract)
+				audio.Stop();
+			if (!audio.isPlaying) {
+				if (audio.clip != retract)
+					audio.clip = retract;
+				audio.Play();
+			}
 			if (Mathf.Abs (currentDrop - targetDrop) < float.Epsilon) {
 				if (targetDrop == 1) {
 					if (grabbedLimb != null) {
@@ -241,9 +265,17 @@ public class ClawControl : MonoBehaviour {
 			}
 			break;
 		case(limbDeliveryState.RETRACTING):
+			if (audio.clip != retract)
+				audio.Stop();
+			if (!audio.isPlaying) {
+				if (audio.clip != retract)
+					audio.clip = retract;
+				audio.Play();
+				
 			if (Mathf.Abs (currentDrop - targetDrop) < float.Epsilon) {
 				deliveryState = limbDeliveryState.ROTATING_DOWN;
 				rotationStateX = 0f;
+				}
 			}
 			break;
 		case(limbDeliveryState.ROTATING_DOWN):

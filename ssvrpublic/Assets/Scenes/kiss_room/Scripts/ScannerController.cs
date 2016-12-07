@@ -9,11 +9,16 @@ public class ScannerController : MonoBehaviour {
 
 	private bool followPlayer;
 
+	private AudioSource audio;
+	public AudioClip rotate;
+
 	void Awake()
 	{
 		followPlayer = true;
 		head = transform.Find ("scanner_head").gameObject;
 		neck = transform.Find ("scanner_neck").gameObject;
+		audio = GetComponent<AudioSource> ();
+		audio.clip = rotate;
 	}
 
 	void FixedUpdate()
@@ -29,6 +34,11 @@ public class ScannerController : MonoBehaviour {
 				float thetaSign = Mathf.Sign ((_curFace - _offset).x);
 				theta = Mathf.Clamp (theta * thetaSign, -0.5f, 0.5f);
 				head.transform.Rotate (Vector3.forward, theta);
+				if (!audio.isPlaying)
+					audio.Play();
+			}
+			else {
+				audio.Stop();
 			}
 		}
 	}

@@ -4,6 +4,15 @@ using System.Collections;
 public class AggregateOffsetter : MonoBehaviour {
 
 	public float minOffset, maxOffset;
+	//private AudioSource audio;
+	//public AudioClip sucksuck;
+
+	void Awake () {
+		//audio = GetComponent <AudioSource> ();
+		//audio.clip = sucksuck;
+		//audio.loop = true;
+		//audio.maxDistance = 3;
+	}
 
 	void Start () 
 	{
@@ -12,5 +21,6 @@ public class AggregateOffsetter : MonoBehaviour {
 		{
 			feeder.OffsetAnim (Random.Range (minOffset, maxOffset));
 		}
+		//audio.Play();
 	}
 }
