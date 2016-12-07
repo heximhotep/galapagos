@@ -76,6 +76,9 @@
      <Compile Include="Assets\Scenes\residential_room\Scripts\run_delayer.cs" />
      <Compile Include="Assets\Scenes\solar_room\Scripts\SolarRoomTransitionController.cs" />
      <Compile Include="Assets\Testing\Controller.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDebugInfo.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDemoManager.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\DemoScenes\HeadsetDemo\Teleport.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\GvrHead.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\GvrCameraUtils.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\GvrEye.cs" />
@@ -89,6 +92,7 @@
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\BaseVRDevice.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\EditorDevice.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\GvrDevice.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\UnityVRDevice.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Legacy\Scripts\Internal\VRDevices\iOSDevice.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Audio\GvrAudio.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Audio\GvrAudioListener.cs" />
@@ -108,12 +112,15 @@
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Controller\Internal\Emulator\PhoneEvent.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Controller\Internal\IControllerProvider.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\GazeInputModule.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\GvrSettings.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\GvrViewer.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Pose3D.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\GvrGaze.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\GvrReticle.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazePointer.cs" />
      <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Utilities\GvrFPS.cs" />
+     <Compile Include="Assets\Universal Assets\GoogleVR\Scripts\Utilities\GvrIntent.cs" />
      <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\BadButton.cs" />
      <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\EthicsCaptcha.cs" />
      <Compile Include="Assets\Universal Assets\Prefabs\ethics.captcha\GoodButton.cs" />
@@ -123,10 +130,13 @@
      <Compile Include="Assets\Universal Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Universal Assets\Scripts\SoundTriggerController.cs" />
+     <Compile Include="Assets\VoiceOverController.cs" />
      <None Include="Assets\Universal Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest-Daydream.xml" />
      <None Include="Assets\Universal Assets\GoogleVR\Resources\UI\GvrReticleShader.shader" />
+     <None Include="Assets\Plugins\Android\AndroidManifest-Cardboard.xml" />
      <None Include="Assets\Universal Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

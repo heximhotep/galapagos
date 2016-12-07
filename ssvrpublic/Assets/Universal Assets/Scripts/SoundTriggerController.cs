@@ -2,18 +2,14 @@
 using System.Collections;
 
 public class SoundTriggerController : MonoBehaviour {
-	private AudioSource clip;
-
-	void Awake()
-	{
-		clip = GetComponent<AudioSource> ();
-	}
+	[SerializeField]
+	private int clipIndex;
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("Player")) 
 		{
-			clip.Play ();
+			GameController.instance.voice.RequestPlayClip (clipIndex);
 			GetComponent<Collider> ().enabled = false;
 		}
 	}
