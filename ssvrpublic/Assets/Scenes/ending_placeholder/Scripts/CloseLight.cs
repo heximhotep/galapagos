@@ -9,9 +9,13 @@ public class CloseLight : MonoBehaviour {
     public GameObject playerCanvas;
     public AudioClip switchSound;
     private bool firedOff;
+    //private Renderer hallwayRenderer;
+    public Material hallwayMaterial = null;
 	// Use this for initialization
 	void Start () {
-		fixImage.GetComponent<ui.Image> ().color = new Color (0f, 0f, 0f, 0f);
+        //hallwayRenderer = GameObject.Find()
+        hallwayMaterial.color = new Color(hallwayMaterial.color.r, hallwayMaterial.color.g, hallwayMaterial.color.b, 1f);
+        fixImage.GetComponent<ui.Image> ().color = new Color (0f, 0f, 0f, 0f);
 		fixImageAgain.GetComponent<ui.Image> ().color = new Color (0f, 0f, 0f, 0f);
         firedOff = false;
     }
@@ -39,6 +43,9 @@ public class CloseLight : MonoBehaviour {
             if (i != lights.Length - 1) yield return new WaitForSeconds(1f);
         }
 		fixImageAgain.GetComponent<ui.Image>().color = new Color(0f, 0f, 0f, 1f);
-		playerCanvas.SetActive (true);
+        hallwayMaterial.color = new Color(hallwayMaterial.color.r, hallwayMaterial.color.g, hallwayMaterial.color.b, 0f);
+        GameObject.Find("Wall Of Reveal").GetComponent<RevealController>().enabled = true;
+		//playerCanvas.SetActive (true);
+
     }
 }
