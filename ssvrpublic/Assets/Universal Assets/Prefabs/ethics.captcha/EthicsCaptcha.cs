@@ -51,7 +51,7 @@ public class EthicsCaptcha : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//pick ending text
-		/*
+		
 		if (humanVal <= -4){
 			endTextObject.GetComponent<Text>().text = endings[0];
 		} 
@@ -73,7 +73,7 @@ public class EthicsCaptcha : MonoBehaviour {
 		else if (humanVal == 4){
 			endTextObject.GetComponent<Text>().text = endings[6];
 		}
-		*/
+		
 	}
 
 }

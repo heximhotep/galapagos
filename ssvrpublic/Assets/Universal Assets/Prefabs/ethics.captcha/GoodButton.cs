@@ -22,10 +22,8 @@ public class GoodButton : MonoBehaviour {
 	void Update () {
 		if (readyToClick && Input.GetButtonDown("Fire1")) {
 			captchaScript.humanVal += 1;
-			print(captchaScript.humanVal);
 			string terminalName = gameObject.name;
 			int terminalVal = int.Parse(terminalName.Substring(terminalName.Length - 1));
-			print(terminalVal);
 			captchaScript.SayThanks(terminalVal);
 			gameObject.SetActive(false);
 			badButton.SetActive(false);
